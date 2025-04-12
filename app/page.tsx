@@ -1,8 +1,9 @@
-import Image from "next/image";
-import ButtonClick from "./components/buttonClick";
+'use client'
+
 
 export default function Home() {
+ 
   return (
-    <ButtonClick />
+   <div></div>
   );
 }

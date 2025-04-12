@@ -1,3 +1,4 @@
+import Footer from "./components/Footer";
 import Header from "./components/header";
 import "./globals.css";
 
@@ -12,6 +13,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       <body>
         <Header />
         <main className="p-4">{children}</main>
+        <Footer />
       </body>
     </html>
   );
