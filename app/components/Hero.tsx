@@ -5,7 +5,7 @@ export default function Hero() {
     <section
       className="relative flex items-center justify-center h-[80vh] bg-gradient-to-r from-blue-600 to-teal-500 text-white"
       style={{
-        backgroundImage: "url('/hospital-bg.jpg')", // Replace with your image
+        backgroundImage: "url('/banner.png')", // Replace with your image
         backgroundBlendMode: "overlay",
         backgroundSize: "cover",
         backgroundPosition: "center",
