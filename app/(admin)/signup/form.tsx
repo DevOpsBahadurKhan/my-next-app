@@ -1,5 +1,4 @@
 "use client";
-
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
@@ -14,21 +13,26 @@ export default function SignupPage() {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
 
-    const res = await fetch("/api/auth/signup", {
-      method: "POST",
-      body: JSON.stringify({ name, email, password }),
-    });
+// ✅ Yeh hona chahiye
+const res = await fetch("/api/auth/signup", {
+  method: "POST",
+  headers: {
+    "Content-Type": "application/json",
+  },
+  body: JSON.stringify({ name, email, password }),
+});
 
     const data = await res.json();
-
+console.log(data);
     if (!res.ok) {
       setError(data.message);
     } else {
-      router.push("/auth/login");
+      router.push("/dashboard");  // redirect after signup
     }
   };
 
   return (
+    
     <div className="max-w-md mx-auto py-10">
       <h2 className="text-2xl mb-4">Signup</h2>
       {error && <p className="text-red-500 mb-2">{error}</p>}
@@ -39,9 +43,9 @@ export default function SignupPage() {
         <input type="password" placeholder="Password" value={password} onChange={(e) => setPassword(e.target.value)} className="border px-2 py-1" />
         <button type="submit" className="bg-blue-600 text-white py-2">Signup</button>
         <p className="text-sm text-center">
-          Don't have an account?{" "}
-          <Link href="/auth/login" className="text-blue-600 underline">
-            Signup here
+          Alreay have an account?{" "}
+          <Link href="/login" className="text-blue-600 underline">
+            Login here
           </Link>
         </p>
       </form>

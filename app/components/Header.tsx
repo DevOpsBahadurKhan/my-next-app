@@ -1,30 +1,31 @@
-"use client";
-
+'use client'
 import { useState } from "react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import Image from "next/image";
 import { FiMenu, FiX } from "react-icons/fi";
+import { useAuth } from "../context/auth-context";
 
 export default function Header() {
-  const router = useRouter();
+  
   const [menuOpen, setMenuOpen] = useState(false);
-
-  const handleLogout = () => {
-    localStorage.removeItem("token");
-    router.push("/auth/login");
-  };
-
   const toggleMenu = () => setMenuOpen(!menuOpen);
+  const { isLoggedIn, setIsLoggedIn } = useAuth();
+  const router = useRouter();
+
 
   return (
     <header className="bg-white shadow-md sticky top-0 z-50">
       <div className="max-w-7xl mx-auto px-4 py-3 flex justify-between items-center">
         {/* Logo and Brand */}
+        <Link href="/" >
         <div className="flex items-center space-x-3">
-          <Image src="/logo2.png" alt="Logo" width={70} height={50} priority />
-          <span className="text-xl font-bold text-blue-700">Bone & Joint Hospital</span>
-        </div>
+  
+      <Image src="/logo2.png" alt="Logo" width={70} height={50} priority />
+      <span className="text-xl font-bold text-blue-700">Bone & Joint Hospital</span>
+
+  </div>
+  </Link>
 
         {/* Desktop Nav */}
         <nav className="hidden md:flex items-center space-x-6 text-gray-700 font-medium">
@@ -32,12 +33,15 @@ export default function Header() {
           <Link href="/about" className="hover:text-blue-600 transition duration-200">About</Link>
           <Link href="/services" className="hover:text-blue-600 transition duration-200">Services</Link>
           <Link href="/contact" className="hover:text-blue-600 transition duration-200">Contact</Link>
-          <button
-            onClick={handleLogout}
-            className="bg-red-500 hover:bg-red-600 text-white px-4 py-2 rounded-xl transition duration-200"
-          >
-            Logout
-          </button>
+          {/* */}
+           
+          <Link href="/login">
+        <button  className="bg-blue-600 hover:bg-blue-800 text-white px-4 py-2 rounded">
+          Login
+        </button>
+          </Link>
+          
+    
         </nav>
 
         {/* Mobile Hamburger Icon */}
@@ -56,15 +60,8 @@ export default function Header() {
             <Link href="/about" onClick={toggleMenu} className="hover:text-blue-600">About</Link>
             <Link href="/services" onClick={toggleMenu} className="hover:text-blue-600">Services</Link>
             <Link href="/contact" onClick={toggleMenu} className="hover:text-blue-600">Contact</Link>
-            <button
-              onClick={() => {
-                handleLogout();
-                toggleMenu();
-              }}
-              className="bg-red-500 hover:bg-red-600 text-white px-4 py-2 rounded-xl"
-            >
-              Logout
-            </button>
+           
+           {/* login button */}
           </div>
         </div>
       )}

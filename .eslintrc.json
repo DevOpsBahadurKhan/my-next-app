@@ -1,0 +1,12 @@
+{
+    "extends": "next",
+    "rules": {
+      "no-console": "warn",     // ⚠️ Console.log use par warning dega
+      "quotes": ["error", "single"], // ❌ Double quote use par error dega
+      "semi": ["error", "always"],    // ❌ Semicolon jaroori hai
+      "compilerOptions": {
+        "forceConsistentCasingInFileNames": true
+      }
+    }
+  }
+  

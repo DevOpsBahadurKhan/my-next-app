@@ -1,0 +1,7 @@
+node_modules/
+public/
+next.config.js
+package-lock.json
+yarn.lock
+*.log
+*.tsbuildinfo

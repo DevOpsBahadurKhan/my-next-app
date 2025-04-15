@@ -1,5 +1,6 @@
 import Footer from "./components/Footer";
-import Header from "./components/header";
+import Header from "./components/Header";
+import { AuthProvider } from "./context/auth-context";
 import "./globals.css";
 
 export const metadata = {
@@ -11,9 +12,11 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="en">
       <body>
+      <AuthProvider>
         <Header />
-        <main className="p-4">{children}</main>
+        <main className="">{children}</main>
         <Footer />
+        </AuthProvider>
       </body>
     </html>
   );
