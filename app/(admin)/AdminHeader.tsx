@@ -1,6 +1,8 @@
 // app/components/admin/AdminHeader.tsx
 "use client";
 
+import LogoutButton from "../components/Logout";
+
 export default function AdminHeader() {
   return (
     <header className="w-full h-16 bg-white shadow flex items-center justify-between px-6">
@@ -23,7 +25,10 @@ export default function AdminHeader() {
           </svg>
         </button>
         {/* User Avatar */}
-        <div className="w-8 h-8 bg-gray-300 rounded-full"></div>
+        <div className="w-8 h-8 bg-gray-300 rounded-full">
+          
+        </div>
+        <LogoutButton />
       </div>
     </header>
   );

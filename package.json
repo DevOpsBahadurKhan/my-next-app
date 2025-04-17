@@ -12,7 +12,10 @@
     "@hookform/resolvers": "^5.0.1",
     "@prisma/client": "^6.6.0",
     "bcryptjs": "^3.0.2",
+    "cookie": "^1.0.2",
     "framer-motion": "^12.6.5",
+    "jose": "^6.0.10",
+    "jsonwebtoken": "^9.0.2",
     "mysql2": "^3.14.0",
     "next": "15.2.5",
     "prisma": "^6.6.0",
@@ -26,6 +29,7 @@
   },
   "devDependencies": {
     "@tailwindcss/postcss": "^4",
+    "@types/jsonwebtoken": "^9.0.9",
     "@types/node": "^20",
     "@types/react": "^19",
     "@types/react-dom": "^19",
