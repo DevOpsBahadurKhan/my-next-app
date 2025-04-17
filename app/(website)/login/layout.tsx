@@ -1,8 +1,10 @@
 export default function LoginLayout({ children }: { children: React.ReactNode }) {
-    return (
-      <html lang="en">
-        <body className="bg-gray-50  overflow-hidden">{children}</body>
-      </html>
-    );
-  }
-  
+  return (
+    <>
+      {/* Optional header, sidebar, etc. */}
+      <main className="min-h-screen bg-gray-50">
+        {children}
+      </main>
+    </>
+  );
+}
